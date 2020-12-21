@@ -17,5 +17,7 @@ runs:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
-    - run: ${{ github.action_path }}/goodbye.sh
+    - run: |
+        chmod 777 ${{ github.action_path }}/simpleJob.sh
+        ${{ github.action_path }}/simpleJob.sh
       shell: bash
